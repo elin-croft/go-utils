@@ -6,7 +6,7 @@ import (
 
 	"github.com/apache/thrift/lib/go/thrift"
 	"github.com/elin-croft/go-utils/demo/service"
-	"github.com/elin-croft/go-utils/framework/utils/startup/server"
+	"github.com/elin-croft/go-utils/framework/utils/thrift_rpc/server"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 		"predict": service.NewProcessor(),
 	}
 	host := "localhost:9090"
-	server := server.StartRpc(serviceMap, host, 10*time.Second)
+	server := server.NewServer(serviceMap, host, 10*time.Second)
 	fmt.Printf("server started at: %s\n", host)
 	server.Serve()
 }

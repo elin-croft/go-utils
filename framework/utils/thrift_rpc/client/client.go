@@ -3,25 +3,32 @@ package client
 import (
 	"context"
 	"log"
+	"time"
 
 	"github.com/apache/thrift/lib/go/thrift"
 )
 
 type Client struct {
 	host           string
+	serviceName    string
 	TConfiguration *thrift.TConfiguration
 }
 
-func NewClient(host string) *Client {
+func NewClient(host string, serviceName string, timeout time.Duration) *Client {
 	return &Client{
-		host:           host,
-		TConfiguration: &thrift.TConfiguration{},
+		host:        host,
+		serviceName: serviceName,
+		TConfiguration: &thrift.TConfiguration{
+			ConnectTimeout: timeout,
+			SocketTimeout:  timeout,
+		},
 	}
 }
 
-func NewClientWithOpt(host string, opts ...Option) *Client {
+func NewClientWithOpt(host string, serviceName string, opts ...Option) *Client {
 	c := &Client{
 		host:           host,
+		serviceName:    serviceName,
 		TConfiguration: &thrift.TConfiguration{},
 	}
 	for _, opt := range opts {
@@ -30,9 +37,10 @@ func NewClientWithOpt(host string, opts ...Option) *Client {
 	return c
 }
 
-func NewClientWithConfig(host string, config *thrift.TConfiguration) *Client {
+func NewClientWithConfig(host string, serviceName string, config *thrift.TConfiguration) *Client {
 	return &Client{
 		host:           host,
+		serviceName:    serviceName,
 		TConfiguration: config,
 	}
 }
@@ -46,7 +54,7 @@ func (c *Client) Call(ctx context.Context, method string, args, result thrift.TS
 	defer serviceTransport.Close()
 
 	protocol := thrift.NewTBinaryProtocolConf(serviceTransport, c.TConfiguration)
-	mq := thrift.NewTMultiplexedProtocol(protocol, "predict")
+	mq := thrift.NewTMultiplexedProtocol(protocol, c.serviceName)
 
 	conn := thrift.NewTStandardClient(mq, mq)
 	resp, err := conn.Call(ctx, method, args, result)
