@@ -15,7 +15,6 @@ func NewDemoRpcServer() *thrift.TSimpleServer {
 	}
 	host := "localhost:9090"
 	server := rpc_server.NewServer(serviceMap, host, 10*time.Second)
-	fmt.Printf("server started at: %s\n", host)
-	//server.Serve()
+	fmt.Printf("server will start at: %s\n", host)
 	return server
 }
