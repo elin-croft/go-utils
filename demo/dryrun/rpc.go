@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/elin-croft/go-utils/framework/utils/thrift_rpc/client"
+	rpc_client "github.com/elin-croft/go-utils/framework/utils/thrift_rpc/client"
 	"github.com/elin-croft/go-utils/gen-go/ew_toolbox"
 )
 
@@ -24,10 +24,7 @@ func main() {
 	// mq := thrift.NewTMultiplexedProtocol(protocol, "predict")
 	// client := ew_toolbox.NewPredictClient(thrift.NewTStandardClient(mq, mq))
 	t1 := time.Now().UnixMilli()
-	client := client.NewClientWithOpt(host, "predict",
-		client.WithConnectionTimeout(10*time.Second),
-		client.WithSocketTimeout(10*time.Second),
-	)
+	client := rpc_client.NewClient(host, "predict", 10*time.Second)
 	req := &ew_toolbox.Request{ID: 123}
 	ctx := context.Background()
 	conn := ew_toolbox.NewPredictClient(client)

@@ -15,14 +15,8 @@ type Client struct {
 }
 
 func NewClient(host string, serviceName string, timeout time.Duration) *Client {
-	return &Client{
-		host:        host,
-		serviceName: serviceName,
-		TConfiguration: &thrift.TConfiguration{
-			ConnectTimeout: timeout,
-			SocketTimeout:  timeout,
-		},
-	}
+	opts := []Option{WithConnectionTimeout(timeout), WithSocketTimeout(timeout)}
+	return NewClientWithOpt(host, serviceName, opts...)
 }
 
 func NewClientWithOpt(host string, serviceName string, opts ...Option) *Client {
