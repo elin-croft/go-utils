@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	rpc_client "github.com/elin-croft/go-utils/framework/utils/thrift_rpc/client"
+	rpc_client "github.com/elin-croft/go-utils/framework/utils/startrek/thrift_rpc/client"
 	"github.com/elin-croft/go-utils/gen-go/ew_toolbox"
 )
 

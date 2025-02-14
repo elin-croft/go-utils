@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	grpc_client "github.com/elin-croft/go-utils/framework/utils/grpc/client"
+	grpc_client "github.com/elin-croft/go-utils/framework/utils/startrek/grpc/client"
 	"github.com/elin-croft/go-utils/gen-go/protos/servers"
 )
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	grpc_server "github.com/elin-croft/go-utils/framework/utils/grpc/server"
+	grpc_server "github.com/elin-croft/go-utils/framework/utils/startrek/grpc/server"
 	"github.com/elin-croft/go-utils/gen-go/protos/servers"
 	"google.golang.org/grpc"
 )

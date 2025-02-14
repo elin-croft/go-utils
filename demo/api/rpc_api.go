@@ -6,7 +6,7 @@ import (
 
 	"github.com/apache/thrift/lib/go/thrift"
 	"github.com/elin-croft/go-utils/demo/service"
-	rpc_server "github.com/elin-croft/go-utils/framework/utils/thrift_rpc/server"
+	rpc_server "github.com/elin-croft/go-utils/framework/utils/startrek/thrift_rpc/server"
 )
 
 func NewDemoRpcServer() *thrift.TSimpleServer {
