@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/elin-croft/go-utils/framework/safe_group"
+	"github.com/elin-croft/go-utils/framework/utils/safe_group"
 )
 
 func main() {
