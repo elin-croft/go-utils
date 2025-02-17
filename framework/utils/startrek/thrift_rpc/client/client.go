@@ -14,8 +14,12 @@ type Client struct {
 	TConfiguration *thrift.TConfiguration
 }
 
+var (
+	DEFAULT_CONNECTION_TIMEOUT = 500 * time.Millisecond
+)
+
 func NewClient(host string, serviceName string, timeout time.Duration) *Client {
-	opts := []Option{WithConnectionTimeout(timeout), WithSocketTimeout(timeout)}
+	opts := []Option{WithConnectionTimeout(DEFAULT_CONNECTION_TIMEOUT), WithSocketTimeout(timeout)}
 	return NewClientWithOpt(host, serviceName, opts...)
 }
 

@@ -12,7 +12,7 @@ func main() {
 	flag.StringVar(&rpcType, "type", "rpc", "rpc type")
 	flag.Parse()
 
-	var server startrek.RpcServer
+	var server startrek.Server
 	if rpcType == "rpc" {
 		server = api.NewDemoRpcServer()
 	} else if rpcType == "grpc" {

@@ -1,5 +1,5 @@
 package startrek
 
-type RpcServer interface {
+type Server interface {
 	Serve() error
 }

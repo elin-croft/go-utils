@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/elin-croft/go-utils/framework/utils/startrek"
 	grpc_server "github.com/elin-croft/go-utils/framework/utils/startrek/grpc/server"
 	"github.com/elin-croft/go-utils/gen-go/protos/servers"
 	"google.golang.org/grpc"
@@ -23,7 +24,7 @@ func (s *Greeter) SayHello(ctx context.Context, req *servers.HelloRequest) (*ser
 	return resp, nil
 }
 
-func NewDemoGRPCServer() *grpc_server.GRPCServer {
+func NewDemoGRPCServer() startrek.Server {
 	host := "localhost:9999"
 	gServer := grpc.NewServer()
 	servers.RegisterGreeterServer(gServer, &Greeter{})
