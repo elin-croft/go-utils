@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/elin-croft/go-utils/gen-go/ew_toolbox"
+	"github.com/elin-croft/go-utils/gen-go/ew_go_thrift/ew_toolbox"
 )
 
 type PredictHandler struct{}

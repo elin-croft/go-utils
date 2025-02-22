@@ -18,6 +18,7 @@ func main() {
 		return
 	}
 
+	t1 := time.Now().UnixMilli()
 	cli := servers.NewGreeterClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
@@ -26,5 +27,9 @@ func main() {
 		Name: "test",
 	}
 	resp, err := cli.SayHello(ctx, req)
+	if err != nil {
+		log.Fatalf("error: %v\n", err)
+	}
 	fmt.Printf("response: %v\n", resp)
+	fmt.Printf("takes %v millisecond\n", time.Now().UnixMilli()-t1)
 }

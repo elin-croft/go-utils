@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 	thrift "github.com/apache/thrift/lib/go/thrift"
-	"ew_toolbox"
+	"ew_go_thrift/ew_toolbox"
 )
 
 var _ = ew_toolbox.GoUnusedProtection__

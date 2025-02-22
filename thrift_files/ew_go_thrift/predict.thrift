@@ -1,5 +1,5 @@
 namespace py ew_toolbox
-namespace go ew_toolbox
+namespace go ew_go_thrift.ew_toolbox
 
 struct request{
     1: i64 id;

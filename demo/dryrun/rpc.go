@@ -7,7 +7,7 @@ import (
 	"time"
 
 	rpc_client "github.com/elin-croft/go-utils/framework/utils/startrek/thrift_rpc/client"
-	"github.com/elin-croft/go-utils/gen-go/ew_toolbox"
+	"github.com/elin-croft/go-utils/gen-go/ew_go_thrift/ew_toolbox"
 )
 
 func main() {
