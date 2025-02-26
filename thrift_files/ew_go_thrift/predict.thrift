@@ -1,4 +1,4 @@
-namespace py ew_toolbox
+namespace py ew_go_thrift.ew_toolbox
 namespace go ew_go_thrift.ew_toolbox
 
 struct request{
